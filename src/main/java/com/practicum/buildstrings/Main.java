@@ -2,7 +2,9 @@ package com.practicum.buildstrings;
 
 public class Main {
     public static void main(String[] args) {
-        test1();
+        System.out.println("Begin");
+        test2();
+        System.out.println("End");
     }
 
     public static void test1() {
@@ -21,8 +23,9 @@ public class Main {
     public static void test2() {
         long begin = System.currentTimeMillis();
 
+        String text ="";
         for (int i =0; i < 100000; i++) {
-            String text = "i = " + i;
+            text +=  i;
         }
 
         long end = System.currentTimeMillis();

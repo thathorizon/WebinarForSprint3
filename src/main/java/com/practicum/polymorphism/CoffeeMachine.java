@@ -102,7 +102,7 @@ class Americano extends Coffee {
 }
 
 class Cappuccino extends Coffee {
-    private final int milk;
+    protected final int milk;
     Cappuccino() {
         super(10, 50);
         this.milk = 100;
