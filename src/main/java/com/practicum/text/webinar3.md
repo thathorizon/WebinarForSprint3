@@ -73,6 +73,22 @@ Overriding – переопределение метода - замена мет
     }
 ```
 
+Ключевое слово `finally`, чем может быть полезно? На первом примере.
+
+Опасность `finally` на примере:
+
+```java
+    static public int whatsFinallyReturned() {
+        try {
+            return 0;
+        } catch (Exception e) {
+            return 1;
+        } finally {
+            return 2;
+        }
+    }
+```
+
 Какие бывают исключения: 
 
 ![img](https://lh5.googleusercontent.com/WqqNoyFEkZXfmZBBQjgIutY72_BUV6_By_BAe7Ih9u36HfelS3nTWQEYtdRUkQS32Tuhg9P9CUXo-jgvOpkO84vLm2viI4Od0BNustwONdMm7DKZnKC6kyVHyRJbsESLIPV4uBU)
@@ -90,19 +106,4 @@ Checked исключение:
 
 Как бросать исключения, ключевое слово `throw`
 
-Ключевое слово `finally`, чем может быть полезно? На первом примере.
-
-Опасность `finally` на примере:
-
-```java
-    static public int whatsFinallyReturned() {
-        try {
-            return 0;
-        } catch (Exception e) {
-            return 1;
-        } finally {
-            return 2;
-        }
-    }
-```
 
