@@ -19,7 +19,7 @@ class ConsoleLogger implements Logger {
 
 class FileLogger implements Logger {
     @Override
-    public void log(String message) {
+    public void log(String string) {
         // write to file
     }
 
