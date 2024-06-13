@@ -1,7 +1,5 @@
 package com.practicum.polymorphism;
 
-import java.io.Serializable;
-
 public class CoffeeMachine {
     private int milk;
     private int beans;
@@ -56,7 +54,6 @@ public class CoffeeMachine {
             Cappuccino cappuccino = (Cappuccino) coffee;
             whipMilk(cappuccino.getMilk());
         }
-
         grindCoffee(coffee.getBeans());
         brewCoffee(coffee.getWater());
 
@@ -80,7 +77,6 @@ public class CoffeeMachine {
     }
 }
 
-// S O L I D
 abstract class Coffee {
     private final int beans;
     private final int water;
@@ -99,12 +95,11 @@ abstract class Coffee {
     }
 }
 
-class Americano extends Coffee implements Serializable {
+class Americano extends Coffee {
     Americano() {
         super(10, 100);
     }
 }
-
 
 class Cappuccino extends Coffee {
     protected final int milk;
@@ -113,33 +108,7 @@ class Cappuccino extends Coffee {
         this.milk = 100;
     }
 
-    public int getBeans() {
-        super.getBeans();
-        return 100;
-    }
-
     public int getMilk() {
-        getBeans();
         return milk;
     }
-}
-
-class Latte extends Coffee {
-
-    Latte(int beans, int water) {
-        super(beans, water);
-    }
-
-    @Override
-    public int getWater() {
-        return super.getWater();
-    }
-
-    @Override
-    public int getBeans() {
-        return super.getBeans();
-
-        // TODO доделать это
-    }
-
 }
