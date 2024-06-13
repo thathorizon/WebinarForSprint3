@@ -3,7 +3,10 @@ package com.practicum.interfaces;
 import java.util.List;
 
 public class Main {
-    //
+    public static void main(String[] args) {
+        Worker worker = new Worker();
+        worker.doWork(new ConsoleLogger());
+    }
 }
 
 interface Logger {
