@@ -86,3 +86,18 @@ class Cappuccino extends Coffee {
         super(100, 10, 50);
     }
 }
+
+class Latte extends Cappuccino {
+    @Override
+    public int getMilk() {
+        return super.getMilk() * 2;
+    }
+}
+
+//class Latte {
+//    Coffee coffee = new Cappuccino();
+//
+//    public int getMilk() {
+//        return coffee.getMilk() * 2;
+//    }
+//}

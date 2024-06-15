@@ -18,14 +18,18 @@ public class CoffeeMachine {
             return false;
         }
 
-        if (milk < coffee.getMilk()) {
-            System.out.println("Недостаточно молока!");
-            return false;
-        }
-
         if (beans < coffee.getBeans()) {
             System.out.println("Недостаточно кофе!");
             return false;
+        }
+
+        if (coffee instanceof Cappuccino) {
+            Cappuccino cappuccino = (Cappuccino) coffee;
+
+            if (milk < cappuccino.getMilk()) {
+                System.out.println("Недостаточно молока!");
+                return false;
+            }
         }
 
         return true;
@@ -47,7 +51,8 @@ public class CoffeeMachine {
 
     public void makeCoffee(Coffee coffee) {
         if (coffee instanceof Cappuccino) {
-            whipMilk(coffee.getMilk());
+            Cappuccino cappuccino = (Cappuccino) coffee;
+            whipMilk(cappuccino.getMilk());
         }
         grindCoffee(coffee.getBeans());
         brewCoffee(coffee.getWater());
@@ -73,18 +78,12 @@ public class CoffeeMachine {
 }
 
 abstract class Coffee {
-    private final int milk;
     private final int beans;
     private final int water;
 
-    Coffee(int milk, int beans, int water) {
-        this.milk = milk;
+    Coffee(int beans, int water) {
         this.beans = beans;
         this.water = water;
-    }
-
-    public int getMilk() {
-        return milk;
     }
 
     public int getBeans() {
@@ -98,12 +97,18 @@ abstract class Coffee {
 
 class Americano extends Coffee {
     Americano() {
-        super(0, 10, 100);
+        super(10, 100);
     }
 }
 
 class Cappuccino extends Coffee {
+    protected final int milk;
     Cappuccino() {
-        super(100, 10, 50);
+        super(10, 50);
+        this.milk = 100;
+    }
+
+    public int getMilk() {
+        return milk;
     }
 }

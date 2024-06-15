@@ -1,36 +1,44 @@
 package com.practicum.trycatch;
 
+import java.io.File;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Begin");
+
+//        getAndPrintInt();
+
+        try {
+            sleep(0);
+        } catch (Exception e) {
+            System.out.println("Поймал исключение " + e);
+
+        }
+
+        System.out.println("End");
 
     }
-}
 
-class ExceptionHandling {
-
-    static public void getAndPrintInteger() {
+    public static void getAndPrintInt() {
         Scanner scanner = new Scanner(System.in);
 
         try {
             int value = scanner.nextInt();
-            System.out.println("Вы ввели с клавиатуры " + value);
-        } catch (InputMismatchException ime) {
-            System.out.println("Не правильный ввод!");
+            System.out.println("Вы ввели с клавиатуры: " + value);
+
+        } catch (InputMismatchException e) {
+            System.out.println("Введено не число!");
+//            System.out.println(ime);
+
         } finally {
-            System.out.println("Мы в блоке finally");
+            System.out.println("Мы попали в finally!");
             scanner.close();
         }
     }
 
-    static public void sleep(int seconds) throws InterruptedException {
-        if (seconds == 0) throw new NullPointerException();
-        Thread.sleep(seconds * 1000L);
-    }
-
-    static public int whatsFinallyReturned() {
+    public static int whatsFinallyReturned() {
         try {
             return 0;
         } catch (Exception e) {
@@ -38,5 +46,17 @@ class ExceptionHandling {
         } finally {
             return 2;
         }
+    }
+
+    public static void sleep(int second) throws InterruptedException {
+        if (second == 0 ) {
+            throw new NullPointerException();
+        }
+
+//        try {
+            Thread.sleep(second * 1000l);
+//        } catch (InterruptedException e) {
+//
+//        }
     }
 }
